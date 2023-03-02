@@ -1,0 +1,111 @@
+/**********************************************************************************
+ * Java Course 4 Capstone Project
+ * 
+ * Automobile Insurance Policy and Claims Administration System (PAS) Specification
+ * 
+ * 
+ * @author: Jellie Mae Ortiz
+ * Date Created: June 20, 2022
+ * @Date Updated: August 8, 2022
+ **********************************************************************************
+
+ My capstone project PAS is designed with MYSQL database connection. I used MYSQL to store the value of each objects/classes/ or attributes. 
+************************************************************************************************************
+-- NEW UPDATE
+
+/the database connection - you can change the port of the url as well as the database name, username, and password to run the system/
+
+1. Policy Effective Date - I made it user input since I forgot to read the context that says it should be customer-selected effective date.
+    Features/Validations: The user input effective date must not be beyond/past the current date. If the user enters a future date which is
+    not today, the status of the policy will be scheduled, otherwise it will be active.
+
+2. Automatically update the policy status feature - Once the program is being executed mainly in the second option,
+ it will automatically update the policy status if the current date meets the scheduled effective date, it will
+be active, if the policy exceeds the expiration date, it will be automatically expired/inactive.
+
+3. Vehicle year validation - The user must enter a purchased year which is within 1982- and present.
+
+4. Claim class feature - I added validations for the claim. The program will check the policy status and validates it.
+The customer can't file a claim if the policy has been cancelled or expired. In addition to this, if the policy is active and if 
+the user enters a date which is not within the policy date coverage (effective & expiration date), he/she can't file a claim.
+
+5. The account number, policy number, policy holder number are generated. I used random number format for this.
+
+6. Date of birth for policy holder - I added age validation which only accepts 18 above for the license.
+
+7. Rating engine algorithm - I changed the condition/comparison between the year.
+
+8. Required fields validation, name validation which only accepts alpha characters, and also int variables such as year or vehicle number 
+that only accepts integers/numbers.
+
+9. This program will automatically create a database name called PASDB if not exists and also create tables.
+
+10. NEW UPDATE: V3 - The claim class or file a claim will ask the user which policy number and its vehicle will be used for filing a claim.
+The claim class feature - displays the vehicles registered in the policies if the customer hasn't filed a claim yet
+                        - a new validation in claim class which tells the customer, she/he has an ongoing claim transaction that he/she can't file 
+                        a claim (claim status)
+                        - the vehicle claim status will be updated if it is used for claim transaction
+
+11. NEW UPDATE: V3 - The customer search account function; I fixed the customer account result display function
+
+***********************************************************************************************************
+1. Customer Account 
+-- When creating a customer account, I put a string validations that checks if the input data is valid like
+the customer's full name. It should not have  a number included or some of the special characters. 
+-- When searching for a customer's name, it displays the list of the policies, the status of the policies, and 
+ list of policy holders registed under the customer account.
+ -- When the customer successfully registered his/her details, the program will also display his/her accountnumber.
+-- However, I didn't make the customer's name unique since there are some instances that customers are having the same name.
+
+2. Get a Policy Quote and Buy the Policy
+-- The user/customer will be asked to enter the account number. There is a validation that checks if the user account number already registered 
+so that he/she can get a policy quote.
+-- The user will be asked to enter his policy holder.  
+-- The user will be asked to enter vehicle details such as the make/manufacturer, model, color, price, and the year model. In addition to this, 
+I added a new feature which is the conduction number attribute that makes the vehicle details unique.
+-- The premium cost will be calculated and shown.
+-- The user can see the preview of the quotation consists of the policynumber, policy holder details, and vehicle details before availing the policy.
+-- If the user will be availing the policy, the program will display the policy quotation with policy number, customer's name, 
+policy holder name, effective date, expiration date, as well as the number of vehicles being insured.
+
+3. Cancel Policy 
+-- The user can cancel the Policy
+-- The user must enter his/her accountnumber
+-- The program will display the list of policies under the customer's accountnumber so the user can choose which one he wishes to cancel
+-- If the user enters the policy number that he wants to cancel, the policy number will be cancelled and expired on the current date.
+-- The program will also display the remaining policies that are active.
+
+4. File a claim 
+-- The user will be asked to enter the policy number
+-- The claim number consists of 6 alphanumeric characters
+-- The user will be asked about the accident details
+-- The program will save/add the claim details that is associated with the policy number and 
+also displays the claim number.
+
+5. Search for Customer Account
+
+-- When searching for a customer's name, it displays the list of the policies, the status of the policies, and 
+ list of policy holders registed under the customer account.
+
+ 6. Search for specific Policy
+
+ -- The user will be asked to enter the policy number
+ -- The PAS program will display the policy details such as policy number, date registered, policy holder, expiration date, number of vehicles,
+ the total premium cost, and also the list of vehicle under that policy number.
+
+ 7. Search for claim
+
+ -- The user will be asked to enter the claim number
+ -- The PAS program will display the claim details
+
+Validations:
+1. input data validation
+2. Date validation
+3. Age validation - gets the birthdate of the policyholder and checks if he's not underage to get the license number or to proceed
+4. Check the policy number if exists
+5. Check the account number if exists
+6. check the claim number if exists
+7. adding conduction number for the vehicle details and checks if it already exists
+
+
+Thank you. :)
